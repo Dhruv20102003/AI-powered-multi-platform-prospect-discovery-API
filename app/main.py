@@ -20,7 +20,11 @@ from app.core.exceptions import (
     SSRFSecurityViolation,
 )
 from app.core.security import verify_api_key
-from app.platforms.search_engine import log_configured_providers
+from app.platforms.search_engine import (
+    SearchProvidersUnavailable,
+    active_search_providers,
+    log_configured_providers,
+)
 from app.schemas import ProspectResponse, QueryRequest
 from app.services.prospect_service import ProspectDiscoveryService
 
@@ -176,6 +180,20 @@ async def health_check() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/health/providers", tags=["Health"])
+async def provider_status() -> dict[str, Any]:
+    """Report which providers are configured (names only, never secrets)."""
+    llm_key = getattr(settings, f"{settings.LLM_PROVIDER.upper()}_API_KEY", None)
+    return {
+        "search_providers": active_search_providers(settings),
+        "llm_provider": settings.LLM_PROVIDER,
+        "llm_model": settings.LLM_MODEL,
+        "llm_key_configured": bool(llm_key),
+        "youtube_key_configured": bool(settings.YOUTUBE_API_KEY),
+        "environment": settings.APP_ENV,
+    }
+
+
 # Prospect Discovery Primary Endpoint
 @app.post(
     "/prospect-discovery",
@@ -212,6 +230,12 @@ async def discover_prospects(
         )
     except ProspectDiscoveryException:
         raise
+    except SearchProvidersUnavailable:
+        logger.error("Search providers unavailable; returning 503.")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Search providers are currently unavailable. Please try again later.",
+        )
     except Exception as e:
         logger.error(f"Error executing prospect discovery: {e}", exc_info=True)
         raise HTTPException(

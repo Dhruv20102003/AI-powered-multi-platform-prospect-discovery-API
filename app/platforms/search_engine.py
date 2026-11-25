@@ -15,8 +15,12 @@ logger = logging.getLogger("prospect.search_engine")
 _AUTO_PRIORITY: list[str] = ["serper", "serpapi", "google_cse", "ddg"]
 
 
+class SearchProvidersUnavailable(RuntimeError):
+    """Raised when no search provider is configured or every provider failed."""
+
+
 def _configured_providers(settings: Any) -> list[str]:
-    """Return providers that have credentials present, in auto-detection priority order."""
+    """Return providers that have credentials present, in priority order (no DDG)."""
     available: list[str] = []
     if settings.SERPER_API_KEY:
         available.append("serper")
@@ -24,45 +28,53 @@ def _configured_providers(settings: Any) -> list[str]:
         available.append("serpapi")
     if settings.GOOGLE_CSE_API_KEY and settings.GOOGLE_CSE_CX:
         available.append("google_cse")
-    # DuckDuckGo is always available as a no-key fallback
-    available.append("ddg")
     return available
 
 
-def log_configured_providers(settings: Any) -> None:
-    """Log which search providers have credentials at startup (no key values logged)."""
-    available = _configured_providers(settings)
-    override = settings.SEARCH_ENGINE_PROVIDER
-    if override:
-        logger.info(
-            "Search provider override active: '%s'. Auto-detection disabled.", override
-        )
-    else:
-        logger.info("Search provider auto-detection enabled (priority: %s).", " → ".join(_AUTO_PRIORITY))
-
-    configured_names = [p for p in available if p != "ddg"]
-    if configured_names:
-        logger.info("Configured search API keys: %s", ", ".join(configured_names))
-    else:
-        logger.info(
-            "No paid search API keys configured. DuckDuckGo will be used as the sole provider."
-        )
-
-
 def _resolve_provider_order(settings: Any) -> list[str]:
-    """Return ordered list of providers to try for this request.
+    """Return the ordered list of providers to try for this request.
 
-    If SEARCH_ENGINE_PROVIDER is set, only that provider is tried (then DDG as fallback
-    if the override isn't ddg itself). Otherwise auto-detection priority is used.
+    Configured API providers come first (an override moves one to the front).
+    DuckDuckGo is a development-only fallback: it is blocked from cloud servers and
+    is not an authorized API, so it is never used when APP_ENV=production.
     """
     override = settings.SEARCH_ENGINE_PROVIDER
+    is_production = settings.APP_ENV == "production"
+
+    if override == "ddg":
+        return [] if is_production else ["ddg"]
+
+    order = _configured_providers(settings)
     if override:
-        # Override forces start with the specified provider; DDG always appended as final fallback
-        if override == "ddg":
-            return ["ddg"]
-        return [override, "ddg"]
-    # Auto-detect: use first configured provider, then fall through the rest
-    return _configured_providers(settings)
+        if override in order:
+            order = [override] + [p for p in order if p != override]
+        else:
+            logger.warning(
+                "SEARCH_ENGINE_PROVIDER='%s' is set but its credentials are missing; "
+                "using auto-detection.",
+                override,
+            )
+    if not is_production:
+        order.append("ddg")
+    return order
+
+
+def active_search_providers(settings: Any) -> list[str]:
+    """Names of the search providers that would be tried, in order (no secrets)."""
+    return _resolve_provider_order(settings)
+
+
+def log_configured_providers(settings: Any) -> None:
+    """Log which search providers are usable at startup (names only, no key values)."""
+    order = _resolve_provider_order(settings)
+    if order:
+        logger.info("Search providers in use (in order): %s", ", ".join(order))
+    else:
+        logger.warning(
+            "No search provider is available (APP_ENV=%s). Discovery requests will fail "
+            "with 503 until SERPER_API_KEY (or another provider key) is configured.",
+            settings.APP_ENV,
+        )
 
 
 async def execute_web_search(
@@ -70,44 +82,44 @@ async def execute_web_search(
     client: httpx.AsyncClient,
     num_results: int = 10,
 ) -> list["SearchResultItem"]:
-    """Execute search using auto-detected provider with graceful fallback chain.
+    """Run a web search through the first working provider.
 
-    Provider selection:
-    - If SEARCH_ENGINE_PROVIDER is set, it is used first (then DuckDuckGo as last resort).
-    - Otherwise the first provider whose key is configured wins:
-      Serper.dev → SerpAPI → Google CSE → DuckDuckGo.
-    - On HTTP 4xx/5xx, the HTTP status is logged and the next provider is tried.
+    Returns an empty list only when a provider answered successfully with no results.
+    Raises SearchProvidersUnavailable when no provider is configured or all failed,
+    so callers can tell "nothing found" apart from "search is broken".
     """
     settings = get_settings()
     provider_order = _resolve_provider_order(settings)
+    if not provider_order:
+        raise SearchProvidersUnavailable("no search provider is configured")
 
     for provider in provider_order:
         try:
             if provider == "serper":
                 return await _search_serper(query, client, num_results)
-            elif provider == "serpapi":
+            if provider == "serpapi":
                 return await _search_serpapi(query, client, num_results)
-            elif provider == "google_cse":
+            if provider == "google_cse":
                 return await _search_google_cse(query, client, num_results)
-            elif provider == "ddg":
+            if provider == "ddg":
                 return await _search_duckduckgo(query, client, num_results)
         except httpx.HTTPStatusError as e:
             logger.warning(
-                "Search provider '%s' returned HTTP %d for query '%s'. Falling through...",
+                "Search provider '%s' returned HTTP %d. Falling through...",
                 provider,
                 e.response.status_code,
-                query,
             )
         except Exception as e:
+            # Log only the error type: some HTTP errors embed the request URL,
+            # which can contain an API key.
             logger.warning(
-                "Search provider '%s' failed for query '%s': %s. Falling through...",
+                "Search provider '%s' failed (%s). Falling through...",
                 provider,
-                query,
-                e,
+                type(e).__name__,
             )
 
-    logger.warning("All search providers exhausted for query '%s'. Returning empty.", query)
-    return []
+    logger.warning("All search providers failed for one query.")
+    raise SearchProvidersUnavailable("all search providers failed")
 
 
 class SearchResultItem:
@@ -215,7 +227,7 @@ async def _search_google_cse(
 async def _search_duckduckgo(
     query: str, client: httpx.AsyncClient, num_results: int
 ) -> list[SearchResultItem]:
-    """DuckDuckGo HTML lite search endpoint."""
+    """DuckDuckGo HTML lite search endpoint (development fallback only)."""
     url = "https://html.duckduckgo.com/html/"
     data = {"q": query, "b": ""}
     headers = {

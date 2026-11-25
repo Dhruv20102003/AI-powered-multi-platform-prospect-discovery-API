@@ -107,7 +107,7 @@ The engine uses the first configured provider. If the active provider returns an
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/ai-prospect-discovery.git
+git clone https://github.com/Dhruv20102003/AI-powered-multi-platform-prospect-discovery-API.git
 cd ai-prospect-discovery
 
 # 2. Create and activate a virtual environment
@@ -317,7 +317,7 @@ docker run -p 4000:4000 --env-file .env ai-prospect-discovery:latest
 
 The application automatically reads the `$PORT` environment variable assigned by cloud platforms (binding to `0.0.0.0:${PORT:-4000}`).
 
-- **Live Demo URL**: `https://ai-prospect-discovery-demo.up.railway.app` *(Placeholder - replace with deployed URL)*
+- **Live Demo URL**: `https://ai-powered-multi-platform-prospect-bukp.onrender.com/` 
 - **API Documentation**: `https://ai-prospect-discovery-demo.up.railway.app/docs`
 - **Prospect Discovery Endpoint**: `https://ai-prospect-discovery-demo.up.railway.app/prospect-discovery`
 

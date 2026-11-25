@@ -8,6 +8,7 @@ import httpx
 
 from app.platforms.base import PlatformProvider, RawProfile
 from app.platforms.registry import get_default_platform_providers
+from app.platforms.search_engine import SearchProvidersUnavailable
 from app.schemas import ParsedQueryIntent
 
 logger = logging.getLogger("prospect.services.search")
@@ -29,6 +30,10 @@ class SearchService:
 
         Returns:
             Tuple of (all_discovered_profiles, list_of_failed_or_skipped_platforms)
+
+        Raises:
+            SearchProvidersUnavailable: when nothing was found and the search
+                providers were unavailable (an outage, not an empty result).
         """
         tasks = [
             self._safe_platform_search(provider, parsed_intent, client, tracker)
@@ -40,9 +45,13 @@ class SearchService:
 
         all_profiles: list[RawProfile] = []
         failed_or_skipped: list[str] = []
+        search_unavailable = 0
 
         for provider, res in zip(self.providers, results, strict=False):
-            if isinstance(res, Exception):
+            if isinstance(res, SearchProvidersUnavailable):
+                search_unavailable += 1
+                failed_or_skipped.append(f"{provider.platform_name}: search unavailable")
+            elif isinstance(res, Exception):
                 logger.error(
                     f"Platform {provider.platform_name} discovery raised unexpected error: {res}",
                     exc_info=True,
@@ -58,6 +67,9 @@ class SearchService:
             f"Multi-platform discovery completed: {len(all_profiles)} raw profiles found. "
             f"{len(failed_or_skipped)} platforms reported issues."
         )
+        # Nothing found AND search was broken: this is an outage, not an empty result.
+        if not all_profiles and search_unavailable:
+            raise SearchProvidersUnavailable("search providers are unavailable")
         return all_profiles, failed_or_skipped
 
     async def _safe_platform_search(
@@ -71,8 +83,14 @@ class SearchService:
         try:
             logger.debug(f"Starting discovery for platform: {provider.platform_name}")
             return await provider.search(parsed_intent, client, tracker=tracker)  # type: ignore[call-arg]
+        except SearchProvidersUnavailable:
+            # Let the outage propagate so the caller can tell it apart from "no results".
+            raise
         except TypeError:
             return await provider.search(parsed_intent, client)
         except Exception as e:
-            logger.warning(f"Discovery error on {provider.platform_name}: {e}")
+            # Log only the error type: some HTTP errors embed URLs that can contain API keys.
+            logger.warning(
+                f"Discovery error on {provider.platform_name}: {type(e).__name__}"
+            )
             return []
