@@ -1,0 +1,71 @@
+﻿{
+    "success":  true,
+    "query":  "Digital marketing agency owners in New York USA",
+    "total_prospects":  6,
+    "prospects":  [
+                      {
+                          "name":  "Hamid Mahmood",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/hamidmahmoodofficial"
+                                              },
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/hamidmahmoodofficial"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Eric Lituchy",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/ericlituchy"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Andrea Shaw",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/andreabertola"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Kiki Von Glinow",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/kiki-von-glinow-09811b17"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Gabriel Shaoolian",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/gabrielshaoolian"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Crafted",
+                          "location":  "New York",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Threads",
+                                                  "link":  "https://www.threads.net/@craftedny"
+                                              }
+                                          ]
+                      }
+                  ]
+}

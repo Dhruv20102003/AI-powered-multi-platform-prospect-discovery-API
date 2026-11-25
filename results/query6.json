@@ -1,0 +1,165 @@
+﻿{
+    "success":  true,
+    "query":  "Yoga teachers in Berlin Germany",
+    "total_prospects":  15,
+    "prospects":  [
+                      {
+                          "name":  "Lena Jungmann",
+                          "location":  "Berlin, Germany",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UC2t-L2ZZKpTl3mAO9Yq6HRg"
+                                              },
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/happylenayoga"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Anita Yoga Berlin",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/anita_yoga_berlin"
+                                              },
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/AnitaYogaBerlin"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Moritz Ulrich",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Google",
+                                                  "link":  "https://jivamuktiyoga.com/teachers-global/moritz-ulrich"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Rachel Brooker",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/rachel-brooker-50566265"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Kristin Tovson",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/kristin-tovson-31264a14"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Cynthia Deslongchamps",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/cynthiades"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Krishna Kumar Krishnan",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/kumar-yoga-berlin"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Srikanth Beeram",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/srikanth-beeram-002b3034"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Carol Berlin",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/carol-berlin-341a3b21a"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Bárbara Conde",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://de.linkedin.com/in/barbara-conde-danceonthemat"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Yogafürdich Berlin",
+                          "location":  "Berlin, Germany",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UCaNbxTHXrm95uxIdzqE_riA"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Turiya Yoga Berlin",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UCFpdUjlr4OGhImgwHyGO4gw"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Yin With Suzan",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UCyMM9yNvJzPUir47YFDY3Ww"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Kumar Yoga Berlin",
+                          "location":  "Berlin, Germany",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UCQBp5OTkaeMJqPfsjHfI49g"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Rocket Station Yoga Berlin",
+                          "location":  "Berlin",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/rocketstationberlin"
+                                              }
+                                          ]
+                      }
+                  ]
+}

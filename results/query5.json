@@ -1,0 +1,121 @@
+﻿{
+    "success":  true,
+    "query":  "Restaurant owners in Dubai UAE",
+    "total_prospects":  11,
+    "prospects":  [
+                      {
+                          "name":  "Joe Zouein",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ae.linkedin.com/in/joe-zouein-5470ba49"
+                                              },
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/joezoueinx"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Shahbaz Shahid Khan",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ae.linkedin.com/in/shahbaz-shahid-khan-4b10a6a0"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Zulekha Zohaib",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ca.linkedin.com/in/zulekha-zohaib-641672164"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "CHADY ZOUEIN",
+                          "location":  "Dubai, UAE",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/chady-zouein-abb49a27"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Melody Seddigh",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/melody-seddigh-633a01a5"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "MOHAMMED BAKARI",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ke.linkedin.com/in/mohammed-bakari-95967231a"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Shaheen Khalil",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ae.linkedin.com/in/shaheen-khalil-96b705112"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Owner Of Shamla Mandi Restaurant",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ae.linkedin.com/in/shamla-mandi-restaurant-771437335"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Peppermill",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Threads",
+                                                  "link":  "https://www.threads.net/@peppermill_uae"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "KRASOTA Dubai Gastro-theatre",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/krasota.restaurant.dubai"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "French Restaurant Dubai",
+                          "location":  "Dubai",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/bisou.dubai"
+                                              }
+                                          ]
+                      }
+                  ]
+}

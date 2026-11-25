@@ -1,0 +1,177 @@
+﻿{
+    "success":  true,
+    "query":  "Dentists in Toronto Canada",
+    "total_prospects":  15,
+    "prospects":  [
+                      {
+                          "name":  "Archer Toronto Dentist",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Google",
+                                                  "link":  "https://www.drarcher.ca"
+                                              },
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/user/nataliearcher8"
+                                              },
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/archerdental.ca"
+                                              },
+                                              {
+                                                  "platform":  "X",
+                                                  "link":  "https://x.com/archerdentalca"
+                                              },
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/archerdental"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Lakeside Dentists",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/lakesidedentists"
+                                              },
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/LakesideDentists"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Sharon Walden",
+                          "location":  "Toronto, Canada",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ca.linkedin.com/in/sharon-walden-a1796122"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Toronto Periodontist Dental Implants Specialist",
+                          "location":  "Toronto, Canada",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Google",
+                                                  "link":  "https://www.torontoimplant.com/about-us/meet-dr-veisman"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Founder",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Google",
+                                                  "link":  "https://maxilladental.com/our-team/founder"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Toronto Beach Dental Toronto Dentist",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Google",
+                                                  "link":  "https://torontobeachdental.com"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Hammad Afif",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ca.linkedin.com/in/hammad-afif-a6540a2a"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Tunde Pal",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://ca.linkedin.com/in/tunde-pal-0a858720"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Aakash Shah",
+                          "location":  "Toronto, Ontario",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/aakash-shah-63a521222"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Mariam Baghdady",
+                          "location":  "Toronto, Canada",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://kw.linkedin.com/in/dr-mariam-baghdady-3a984497"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Toronto Dentists",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "X",
+                                                  "link":  "https://x.com/dentiststoronto"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Planet Dentistry Toronto Ont",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "YouTube",
+                                                  "link":  "https://www.youtube.com/channel/UCjlCaiIjvz9WDHQTaKYikPQ"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Computer Support For Dentists",
+                          "location":  "Toronto, Canada",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/computer_support_for_dentists"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Komal Jain Associates Dentists",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/komaljaindentistry"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Yonge Eglinton Dentistry",
+                          "location":  "Toronto",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/YongeEgDental"
+                                              }
+                                          ]
+                      }
+                  ]
+}

@@ -1,0 +1,67 @@
+﻿{
+    "success":  true,
+    "query":  "Football lovers in Washington DC in USA",
+    "total_prospects":  6,
+    "prospects":  [
+                      {
+                          "name":  "Mike Spurgeon",
+                          "location":  "Washington DC, District of Columbia",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "LinkedIn",
+                                                  "link":  "https://www.linkedin.com/in/mike-spurgeon-64975337"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "DC State Athletics Dcsaasports",
+                          "location":  "Washington DC",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "X",
+                                                  "link":  "https://x.com/dcsaasports"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Washington DC Seals",
+                          "location":  "Washington DC",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "X",
+                                                  "link":  "https://x.com/dc_seals"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Washington DC Gaels GAA",
+                          "location":  "Washington DC",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Instagram",
+                                                  "link":  "https://www.instagram.com/dcgaels"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "Washington DC Panthers",
+                          "location":  "Washington DC",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Facebook",
+                                                  "link":  "https://www.facebook.com/washingtondc.panthers"
+                                              }
+                                          ]
+                      },
+                      {
+                          "name":  "UCLA Alumni Washington DC Area",
+                          "location":  "Washington DC",
+                          "social_link":  [
+                                              {
+                                                  "platform":  "Threads",
+                                                  "link":  "https://www.threads.net/@dcbruins"
+                                              }
+                                          ]
+                      }
+                  ]
+}
